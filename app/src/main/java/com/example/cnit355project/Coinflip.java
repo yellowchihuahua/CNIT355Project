@@ -1,5 +1,6 @@
 package com.example.cnit355project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,13 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class Coinflip extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_coinflip);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -23,20 +24,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    public void onRPSClick(View view) {
-
-
+    public void onBackClick(View view){
+        Intent mIntent = new Intent(Coinflip.this, MainActivity.class);
+        Coinflip.this.startActivity(mIntent);
+        finish();
     }
-
-    public void onFlipClick(View view) {
-
-
-    }
-
-    public void onDiceClick(View view) {
-
-
-    }
-
 }

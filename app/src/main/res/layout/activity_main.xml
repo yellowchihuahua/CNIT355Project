@@ -7,13 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-63dp"
+        tools:layout_editor_absoluteY="275dp">
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fortune Throwdown!"
+            android:textSize="48sp" />
+
+        <Button
+            android:id="@+id/buttonRPS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rock, Paper, Scissors"
+            android:onClick="onRPSClick"/>
+
+        <Button
+            android:id="@+id/buttonFlip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coin Flip"
+            android:onClick="onFlipClick"/>
+
+        <Button
+            android:id="@+id/buttonDice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dice Roll"
+            android:onClick="onDiceClick"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
