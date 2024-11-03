@@ -1,5 +1,6 @@
 package com.example.cnit355project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -25,18 +26,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onRPSClick(View view) {
-
-
+        Intent mIntent = new Intent(MainActivity.this, RPS.class);
+        MainActivity.this.startActivity(mIntent);
+        finish();
     }
 
     public void onFlipClick(View view) {
-
-
+        Intent mIntent = new Intent(MainActivity.this, Coinflip.class);
+        MainActivity.this.startActivity(mIntent);
+        finish();
     }
 
     public void onDiceClick(View view) {
-
-
+        Intent mIntent = new Intent(MainActivity.this, Diceroll.class);
+        MainActivity.this.startActivity(mIntent);
+        finish();
     }
 
 }
