@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class RPS extends AppCompatActivity {
 
     ImageButton rockButton, paperButton, scissorsButton;
+    TextView playerPromptText;
 
     String current = "Rock";
 
@@ -31,6 +33,7 @@ public class RPS extends AppCompatActivity {
             return insets;
         });
 
+        playerPromptText = (TextView) findViewById(R.id.textView);
         rockButton = (ImageButton) findViewById(R.id.imageButtonRock);
         paperButton = (ImageButton) findViewById(R.id.imageButtonPaper);
         scissorsButton = (ImageButton) findViewById(R.id.imageButtonScissors);
@@ -66,13 +69,36 @@ public class RPS extends AppCompatActivity {
         if(playerTurn == 1) {
             player1Selection = current; //save the current selection to player1Selection
             current = ""; //clear current selection
-            //change string to prompt player 2 instead
+            playerPromptText.setText("Player 2:");
             playerTurn++; //increment player 2
         } else { //otherwise, player turn is 2
             player2Selection = current;
             //huge if statement to determine winner
-            //change graphics to display winner
+            if (player1Selection.equals("scissors") && player2Selection.equals("paper")){
+                displayWinner(1);
+            } else if (player1Selection.equals("rock") && player2Selection.equals("scissors")) {
+                displayWinner(1);
+            } else if (player1Selection.equals("paper") && player2Selection.equals("rock")) {
+                displayWinner(1);
+            } else if (player1Selection.equals("scissors") && player2Selection.equals("rock")) {
+                displayWinner(2);
+            } else if (player1Selection.equals("rock") && player2Selection.equals("paper")) {
+                displayWinner(2);
+            } else if (player1Selection.equals("paper") && player2Selection.equals("scissors")){
+                displayWinner(2);
+            } else {
+                displayWinner(0);
+            }
+
 
         }
+    }
+
+    private void displayWinner(int winnerNum){
+        Intent mIntent = new Intent(this, RPSWinner.class);
+        mIntent.putExtra("winnerNum", winnerNum);
+        startActivity(mIntent);
+        finish();
+
     }
 }
