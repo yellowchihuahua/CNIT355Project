@@ -5,19 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#476C76"
     tools:context=".RPSWinner">
+
     <Button
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onBackClick"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="onBackClick"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="0dp"
+        android:background="#476C76"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,18 +40,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Player 1 Wins!"
             android:textAlignment="center"
-            android:textSize="24sp" />
+            android:textColor="#0B0B0B"
+            android:textSize="34sp" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="287dp"
+            android:layout_height="82dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="100dp"
             android:layout_marginRight="40dp"
-            android:text="Play Again"
-            android:onClick="onNewRPSClick"/>
+            android:background="#020202"
+            android:onClick="onNewRPSClick"
+            android:text="Play Again?"
+            android:textColor="#FAF8F8"
+            android:textSize="24sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

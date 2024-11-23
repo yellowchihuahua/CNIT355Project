@@ -3,6 +3,7 @@ package com.example.cnit355project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -13,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class RPS extends AppCompatActivity {
-
+    Button rock, paper, scissors;
     ImageButton rockButton, paperButton, scissorsButton;
     TextView playerPromptText;
 
@@ -33,10 +34,16 @@ public class RPS extends AppCompatActivity {
             return insets;
         });
 
+        //calling objects into code
         playerPromptText = (TextView) findViewById(R.id.textView);
-        rockButton = (ImageButton) findViewById(R.id.imageButtonRock);
-        paperButton = (ImageButton) findViewById(R.id.imageButtonPaper);
-        scissorsButton = (ImageButton) findViewById(R.id.imageButtonScissors);
+        rock = (Button) findViewById(R.id.rock);
+        paper = (Button) findViewById(R.id.paper);
+        scissors = (Button) findViewById(R.id.scissors);
+
+        //when button is clicked do method
+        rock.setOnClickListener(v -> onClickRock());
+        paper.setOnClickListener(v -> onClickPaper());
+        scissors.setOnClickListener(v -> onClickScissors());
     }
 
     public void onBackClick(View view){
@@ -45,25 +52,24 @@ public class RPS extends AppCompatActivity {
         finish();
     }
 
-    public void onClickRock(View view){
+    public void onClickRock(){
         current = "Rock";
-        rockButton.setBackgroundResource(R.color.red);
-        paperButton.setBackgroundResource(R.color.gray);
-        scissorsButton.setBackgroundResource(R.color.gray);
-
+        rock.setBackgroundColor(getResources().getColor(R.color.red));
+        paper.setBackgroundColor(getResources().getColor(R.color.white));
+        scissors.setBackgroundColor(getResources().getColor(R.color.white));
     }
-    public void onClickPaper(View view){
+    public void onClickPaper(){
         current = "Paper";
-        rockButton.setBackgroundResource(R.color.gray);
-        paperButton.setBackgroundResource(R.color.red);
-        scissorsButton.setBackgroundResource(R.color.gray);
+        paper.setBackgroundColor(getResources().getColor(R.color.red));
+        scissors.setBackgroundColor(getResources().getColor(R.color.white));
+        rock.setBackgroundColor(getResources().getColor(R.color.white));
     }
-    public void onClickScissors(View view){
+    public void onClickScissors(){
         current = "Scissors";
-        rockButton.setBackgroundResource(R.color.gray);
-        paperButton.setBackgroundResource(R.color.gray);
-        scissorsButton.setBackgroundResource(R.color.red);
-    }
+        scissors.setBackgroundColor(getResources().getColor(R.color.red));
+        paper.setBackgroundColor(getResources().getColor(R.color.white));
+        rock.setBackgroundColor(getResources().getColor(R.color.white));
+        }
 
     public void onClickSubmit(View view){
         if(playerTurn == 1) {
@@ -74,31 +80,37 @@ public class RPS extends AppCompatActivity {
         } else { //otherwise, player turn is 2
             player2Selection = current;
             //huge if statement to determine winner
-            if (player1Selection.equals("scissors") && player2Selection.equals("paper")){
-                displayWinner(1);
-            } else if (player1Selection.equals("rock") && player2Selection.equals("scissors")) {
-                displayWinner(1);
-            } else if (player1Selection.equals("paper") && player2Selection.equals("rock")) {
-                displayWinner(1);
-            } else if (player1Selection.equals("scissors") && player2Selection.equals("rock")) {
-                displayWinner(2);
-            } else if (player1Selection.equals("rock") && player2Selection.equals("paper")) {
-                displayWinner(2);
-            } else if (player1Selection.equals("paper") && player2Selection.equals("scissors")){
-                displayWinner(2);
-            } else {
-                displayWinner(0);
-            }
+            getWinner();}
 
-
+    }
+    private void getWinner(){
+        int winner = 0; // Default is a tie
+        String winningSelection;
+        if (player1Selection.equals("Rock") && player2Selection.equals("Scissors") ||
+                player1Selection.equals("Paper") && player2Selection.equals("Rock") ||
+                player1Selection.equals("Scissors") && player2Selection.equals("Paper")) {
+            winner = 1; // Player 1 wins
+        } else if (player2Selection.equals("Rock") && player1Selection.equals("Scissors") ||
+                player2Selection.equals("Paper") && player1Selection.equals("Rock") ||
+                player2Selection.equals("Scissors") && player1Selection.equals("Paper")) {
+            winner = 2; // Player 2 wins
         }
+
+        if (winner == 1){
+            winningSelection = player1Selection;
+        } else {
+            winningSelection = player2Selection;
+        }
+
+        displayWinner(winner, winningSelection); // Display the winner or tie
     }
 
-    private void displayWinner(int winnerNum){
+    private void displayWinner(int winnerNum, String selection){
         Intent mIntent = new Intent(this, RPSWinner.class);
         mIntent.putExtra("winnerNum", winnerNum);
+        mIntent.putExtra("winningSelection", selection);
         startActivity(mIntent);
-        finish();
+        //finish();
 
     }
 }

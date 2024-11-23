@@ -5,18 +5,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#476C76"
     tools:context=".RPS">
 
     <Button
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onBackClick"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="onBackClick"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -29,57 +31,58 @@
             android:layout_height="wrap_content"
             android:text="Player 1:"
             android:textAlignment="center"
-            android:textSize="24sp" />
+            android:textColor="#0B0B0B"
+            android:textSize="34sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Please make your selection:" />
+            android:text="Please make your selection:"
+            android:textColor="#0B0B0B"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="100dp"
-            android:orientation="horizontal"
-            android:layerType="software">
+            android:layerType="software"
+            android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButtonRock"
+            <Button
+                android:id="@+id/rock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/red"
-                android:onClick="onClickRock"
-                app:srcCompat="@drawable/rock" />
+                android:background="#FFFFFF"
+                android:text="Rock" />
 
-            <ImageButton
-                android:id="@+id/imageButtonPaper"
+            <Button
+                android:id="@+id/paper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gray"
-                android:onClick="onClickPaper"
-                app:srcCompat="@drawable/paper" />
+                android:background="#FBF9F9"
+                android:text="Paper" />
 
-            <ImageButton
-                android:id="@+id/imageButtonScissors"
+            <Button
+                android:id="@+id/scissors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/gray"
-                android:onClick="onClickScissors"
-                app:srcCompat="@drawable/scissors" />
+                android:background="#FBFBFB"
+                android:text="scissors" />
         </LinearLayout>
 
         <Button
             android:id="@+id/buttonSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#0B0B0B"
+            android:onClick="onClickSubmit"
             android:text="Submit"
-            android:onClick ="onClickSubmit"
-            />
+            android:textColor="#F8F5F5" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,19 +93,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/paper" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
             </FrameLayout>
         </LinearLayout>
+
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="135dp"
+        android:layout_height="128dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.529"
+        app:srcCompat="@drawable/scissors" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="141dp"
+        android:layout_height="128dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.529"
+        app:srcCompat="@drawable/paper" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="141dp"
+        android:layout_height="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.527"
+        app:srcCompat="@drawable/rock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

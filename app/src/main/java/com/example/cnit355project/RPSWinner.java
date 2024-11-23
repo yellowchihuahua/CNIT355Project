@@ -3,6 +3,7 @@ package com.example.cnit355project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +16,7 @@ public class RPSWinner extends AppCompatActivity {
 
 
     TextView winnerDisplayText;
+    ImageView winnerIconDisplay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,16 +29,26 @@ public class RPSWinner extends AppCompatActivity {
         });
 
         winnerDisplayText = findViewById(R.id.textView3);
+        winnerIconDisplay = findViewById(R.id.imageView7);
         Intent mIntent = getIntent();
         if (mIntent == null) {
             return;
         }
 
         int winner = mIntent.getIntExtra("winnerNum",0);
+        String winningSelection = mIntent.getStringExtra("winningSelection");
         if(winner == 0){
             winnerDisplayText.setText("It's a Tie!");
         } else {
             winnerDisplayText.setText(String.format("Player %d Wins!", winner));
+        }
+
+        if(winningSelection.equals("Rock")) {
+            winnerIconDisplay.setImageResource(R.drawable.rock);
+        } else if (winningSelection.equals("Scissors")) {
+            winnerIconDisplay.setImageResource(R.drawable.scissors);
+        } else {
+            winnerIconDisplay.setImageResource(R.drawable.paper);
         }
     }
 

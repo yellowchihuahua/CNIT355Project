@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#8951BD"
     tools:context=".Diceroll">
 
 
@@ -12,10 +13,10 @@
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onBackClick"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="onBackClick"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -38,21 +39,25 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:src="@drawable/two" />
+
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:src="@drawable/three" />
+
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:src="@drawable/four" />
+
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:src="@drawable/five" />
+
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="300dp"
@@ -63,12 +68,18 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="78dp"
         android:layout_marginTop="52dp"
-        android:text="Roll Die"
+        android:background="#090909"
         android:onClick="onRollDieClick"
+        android:text="Roll Die!"
+        android:textColor="#FDF9F9"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.248" />
 </androidx.constraintlayout.widget.ConstraintLayout>

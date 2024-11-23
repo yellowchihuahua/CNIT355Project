@@ -10,37 +10,55 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#CEA138"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="-63dp"
         tools:layout_editor_absoluteY="275dp">
 
         <TextView
             android:id="@+id/textTitle"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Fortune Throwdown!"
+            android:textAllCaps="true"
+            android:textColor="#090909"
+            android:textSize="48sp" />
+
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fortune Throwdown!"
-            android:textSize="48sp" />
+            android:gravity="center"
+            android:text="Choose Your Game!"
+            android:textColor="#0D0D0D"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/buttonRPS"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rock, Paper, Scissors"
-            android:onClick="onRPSClick"/>
+            android:layout_height="100dp"
+            android:background="#476C76"
+            android:onClick="onRPSClick"
+            android:text="Rock, Paper, Scissors" />
 
         <Button
             android:id="@+id/buttonFlip"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Coin Flip"
-            android:onClick="onFlipClick"/>
+            android:layout_height="100dp"
+            android:background="#AB5959"
+            android:onClick="onFlipClick"
+            android:text="Coin Flip" />
 
         <Button
             android:id="@+id/buttonDice"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dice Roll"
-            android:onClick="onDiceClick"/>
+            android:layout_height="100dp"
+            android:background="#8951BD"
+            android:onClick="onDiceClick"
+            android:text="Dice Roll" />
+
+
 
     </LinearLayout>
 
